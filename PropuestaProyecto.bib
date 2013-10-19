@@ -2,18 +2,31 @@
 \RequirePackage{filecontents}        % loading package filecontents
 % writing file \jobname.bib, for example mb-bibtex.bib.
 \begin{filecontents*}{\bib_refs_data.bib}
+
 @online{AusGov2013Online,
 author = {Australian Goverment},
-title = {Civil Aviation Safety Authority - Differences between Unmanned Aircraft Systems (UAS) and model aircraft},
+title = {Civil Aviation Safety Authority - Differences between Unmanned Aircraft Systems (\uppercase{UAS}) and model aircraft},
 month = oct,
 year = {2013},
-url = {http://casa.gov.au/}
+url = {http://casa.gov.au/scripts/nc.dll?WCMS:STANDARD::pc=PC_100375}
 }
 
-@article{caulkins1996adjusting,
-  title={Adjusting GPA to reflect course difficulty},
-  author={Caulkins, Jonathan P and Larkey, Patrick D and Wei, Jifa},
-  year={1996}
+@mastersthesis{
+        geipel2012microuav,
+	author = {J. Geipel},
+	title = "Improved \uppercase{DGNSS}-based Positioning of Micro\uppercase{UAV} Platforms for Sensor Web Services",
+	school = {University of Münster Institute for Geoinformatics},
+	month = feb,
+	year = {2012}
+}
+
+@inproceedings{ardrone2011,
+  title={{The Navigation and Control technology inside the AR.Drone micro UAV}},
+  author={{P. Bristeau ,F. Callou, D. Vissière, N. Petit }},
+  month=aug,
+  year="2011" ,
+  booktitle={{Proceedings of the 18th IFAC World Congress}},
+  organization={{International Federation of Automatic Control}}
 }
 
 @book{tabachnick2012using,
@@ -53,22 +66,23 @@ url = {http://casa.gov.au/}
 }
 
 @Manual{ rmanual,
-	title = {R: A Language and Environment for Statistical Computing},
-	author = {{R Core Team}},
-	organization = {R Foundation for Statistical Computing},
-	address = {Vienna, Austria},
-	year = {2013},
-	url = {http://www.R-project.org/},
+        title = {R: A Language and Environment for Statistical Computing},
+        author = {{R Core Team}},
+        organization = {R Foundation for Statistical Computing},
+        address = {Vienna, Austria},
+        year = {2013},
+        url = {http://www.R-project.org/},
 }
   
   
   @article{jordan1996exploring,
-  	title={Exploring the causes of early dropout among race-ethnic and gender groups},
-  	author={Jordan, Will J and Lara, Julia and McPartland, James M},
-  	journal={Youth \& Society},
-  	volume={28},
-  	number={1},
-  	pages={62--94},
-  	year={1996},
-  	publisher={Sage Publications}
+          title={Exploring the causes of early dropout among race-ethnic and gender groups},
+          author={Jordan, Will J and Lara, Julia and McPartland, James M},
+          journal={Youth \& Society},
+          volume={28},
+          number={1},
+          pages={62--94},
+          year={1996},
+          publisher={Sage Publications}
   }
+\end{filecontents*}

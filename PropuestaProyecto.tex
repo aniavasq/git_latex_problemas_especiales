@@ -1,47 +1,10 @@
-% !TEX TS-program = pdflatex
-% !TEX encoding = UTF-8 Unicode
-
-% This is a simple template for a LaTeX document using the "article" class.
-% See "book", "report", "letter" for other types of document.
-
-%\documentclass[11pt]{article} % use larger type; default would be 10pt
 \documentclass[a4paper]{article}
-%\bibliographystyle{IEEEtran}  
-% or: plain,unsrt,alpha,abbrv,acm,apalike
 
 \usepackage[utf8]{inputenc} % set input encoding (not needed with XeLaTeX)
 \usepackage[spanish]{babel}
 
-%%% Examples of Article customizations
-% These packages are optional, depending whether you want the features they provide.
-% See the LaTeX Companion or other references for full information.
-
-%%% PAGE DIMENSIONS
-\usepackage{geometry} % to change the page dimensions
-\geometry{a4paper} % or letterpaper (US) or a5paper or....
-% \geometry{margin=2in} % for example, change the margins to 2 inches all round
-% \geometry{landscape} % set up the page for landscape
-%   read geometry.pdf for detailed page layout information
-
-\usepackage{graphicx} % support the \includegraphics command and options
-
-% \usepackage[parfill]{parskip} % Activate to begin paragraphs with an empty line rather than an indent
-
-%%% PACKAGES
-\usepackage{cite}
-%\usepackage{booktabs} % for much better looking tables
-%\usepackage{array} % for better arrays (eg matrices) in maths
-%\usepackage{paralist} % very flexible & customisable lists (eg. enumerate/itemize, etc.)
-%\usepackage{verbatim} % adds environment for commenting out blocks of text & for better verbatim
-\usepackage{subfig} % make it possible to include more than one captioned figure/table in a single float
-% These packages are all incorporated in the memoir class to one degree or another...
-
-%%% HEADERS & FOOTERS
-%\usepackage{fancyhdr} % This should be set AFTER setting up the page geometry
-%\pagestyle{fancy} % options: empty , plain , fancy
-%\renewcommand{\headrulewidth}{0pt} % customise the layout...
-%\lhead{}\chead{}\rhead{}
-%\lfoot{}\cfoot{\thepage}\rfoot{}
+\usepackage[numbers]{natbib}         % bibliography style
+\usepackage[colorlinks]{hyperref}    % better urls in bibliography
 
 %%% SECTION TITLE APPEARANCE
 \usepackage{sectsty}
@@ -53,16 +16,17 @@
     \begin{center}\large#1\end{center}
     \vskip0.5em}%
 }
-% (This matches ConTeXt defaults)
 
-%%% ToC (table of contents) APPEARANCE
-\usepackage[nottoc,notlof,notlot]{tocbibind} % Put the bibliography in the ToC
-\usepackage[titles,subfigure]{tocloft} % Alter the style of the Table of Contents
-\renewcommand{\cftsecfont}{\rmfamily\mdseries\upshape}
-\renewcommand{\cftsecpagefont}{\rmfamily\mdseries\upshape} % No bold!
+%%% PAGE DIMENSIONS
+\usepackage{geometry} % to change the page dimensions
+\geometry{a4paper} % or letterpaper (US) or a5paper or....
+% \geometry{margin=2in} % for example, change the margins to 2 inches all round
+% \geometry{landscape} % set up the page for landscape
+%   read geometry.pdf for detailed page layout information
+
+\usepackage{graphicx} % support the \includegraphics command and options
 
 %%% END Article customizations
-
 %%% The "real" document content comes below...
 
 \begin{document}
@@ -82,13 +46,24 @@ El uso de Drones o Vehículos Aéreos No Tripulados inicialmente con aplicacione
 El objetivo de este proyecto es crear una aplicación en la cual un usuario de un samrtphone o tablet pueda experimentar de forma virtual el uso de un Drone con la ayuda de realidad aumentada y sensores del dispositivo como GPS y acelerómetro para generar un ambiente sobre el cual el drone virtualmente se desplaza; aunque hoy en día el costo de un Drone con mera aplicación de vigilancia es comerciado, sus precios son considerablemente altos y un usuario no puede realizar una prueba de este sin antes comprarlo.
 
 \section{Marco Teórico}
-\subsection{Vehículo Aéreo No Tripulado, Sistema de Aeronaves No Tripulados y Modelos Radiocontrolados}
 
-Un Sistema de Aeronaves No Tripulados son aeronaves no tripuladas junto con las instalaciones de control terrestre, networking y el personal certificado para el piloteo de estas aeronaves \cite{AusGov2013Online}
+\subsection{Sistema de Aeronaves No Tripulados, Vehículo Aéreo No Tripulado, Micro Vehículo Aéreo No Tripulado y Modelos Radiocontrolados}
+Los Sistemas de Aeronaves No Tripulados son aeronaves no tripuladas en conjunto con las instalaciones de control terrestre, conectividad y el personal certificado para el piloteo de estas aeronaves; los Vehículos Aéreos No Tripulados o VANT son las aeronaves no tripuladas en estos sistemas los cuales solo son aprobados para operar sobre áreas no pobladas a una altura mayor a 400ft y pueden ser operados en apropiadas condiciones meteorológicas de visualización o apropiadas condiciones meteorológicas para instrumentos. Los Modelos Radiocontrolados son diseñados para recreación, deportes y educación y solo pueden ser piloteados en un rango de visión y transmisión limitado ~\cite{AusGov2013Online}.
+Los Micro Vehículos Aéreos No Tripulados o Micro Unmaned Air Vehicle (MicroUAV)  son aereonaves no tripuladas con un tamaño y peso considerablemente menor al de un VANT, recientemente son desarrollados como plataformas para sensores móviles los cuales pueden ser usados para recopilar observaciones en las misiones en diferentes escenarios ~\cite{geipel2012microuav}, estos sensores suelen ser cámaras como el caso del AR.Drone MicroUAV el cual es un quadróptero equipado con dos cámaras VGA, delantera y trasera, cuyas señales son enviadas a un smartphone desde el cual es controlado ~\cite{ardrone2011}, desde este punto nos referiremos a los MicroUAV como Drones.
+
+\subsection{Drone aumentado y Simulación de Captura de Cámara}
+La simulación de un Modelo Radiocontrolado de forma aumentada puede ser lograda con la ayuda de una librería de realidad aumentada como ARTool y una librería de gráficos tridimensionales por computara como OpenGL pero existen una serie de problemas que se presentan al momento de implentar las soluciones a la simulación de un Drone con realidad aumentada, en primer lugar un Drone a diferencia de un Modelado Radiocontrolado tiene una serie de sensores que le permiten mejorar la navegación además de tomar muestras y el principal sensor en los modelos comerciales como el AR.Drone es una cámara que transmite una señal de video a un control que en el caso del AR.Drone es un iPhone o un iPad; al ser una aplicación para un dispositivo móvil el usuario puede cambiar la posición de la cámara para realizar el seguimiento del Drone implicando actualizar la perspectiva del modelado 3D para poder darle al usuario la noción de seguimiento de este. En primer instancia se plantea que estos problemas pueden ser resueltos con ciertos sensores que proveen estos dispositivos móviles como el GPS, la cámara, el acelerómetro y giroscopio, logrando una aproximación considerable al pilotaje de un Drone real que posea una cámara.
+
+\begin{figure}[h!]
+  \centering
+  \includegraphics[width=0.95\linewidth, keepaspectratio]{helicopteroAR}
+  \caption{Aplicación que permite controlar un helicóptero en realidad aumentada, a la izquierda se muestran los controles que usa para dirección y mantener vuelo}
+  \label{fig:Helicoptero AR}
+\end{figure}
 
 \section{Análisis}
 \section{Recursos}
-\section{Apéndice}
+%\section{Apéndice}
 
 %content
 
@@ -97,6 +72,7 @@ Un Sistema de Aeronaves No Tripulados son aeronaves no tripuladas junto con las 
 %More text before content table.
 
 %%%BIBLIOGRAPHY
-\bibliographystyle{abbrv}
-\bibliography{bib_refs_data}  % sigproc.bib is the name of the Bibliography in this case
+%\bibliographystyle{abbrv}
+\bibliographystyle{plainnat}
+\bibliography{PropuestaProyecto}  % PropuestaProyecto.bib is the name of the Bibliography in this case
 \end{document}
