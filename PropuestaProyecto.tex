@@ -6,6 +6,8 @@
 
 %\documentclass[11pt]{article} % use larger type; default would be 10pt
 \documentclass[a4paper]{article}
+%\bibliographystyle{IEEEtran}  
+% or: plain,unsrt,alpha,abbrv,acm,apalike
 
 \usepackage[utf8]{inputenc} % set input encoding (not needed with XeLaTeX)
 \usepackage[spanish]{babel}
@@ -26,6 +28,7 @@
 % \usepackage[parfill]{parskip} % Activate to begin paragraphs with an empty line rather than an indent
 
 %%% PACKAGES
+\usepackage{cite}
 %\usepackage{booktabs} % for much better looking tables
 %\usepackage{array} % for better arrays (eg matrices) in maths
 %\usepackage{paralist} % very flexible & customisable lists (eg. enumerate/itemize, etc.)
@@ -79,6 +82,10 @@ El uso de Drones o Vehículos Aéreos No Tripulados inicialmente con aplicacione
 El objetivo de este proyecto es crear una aplicación en la cual un usuario de un samrtphone o tablet pueda experimentar de forma virtual el uso de un Drone con la ayuda de realidad aumentada y sensores del dispositivo como GPS y acelerómetro para generar un ambiente sobre el cual el drone virtualmente se desplaza; aunque hoy en día el costo de un Drone con mera aplicación de vigilancia es comerciado, sus precios son considerablemente altos y un usuario no puede realizar una prueba de este sin antes comprarlo.
 
 \section{Marco Teórico}
+\subsection{Vehículo Aéreo No Tripulado, Sistema de Aeronaves No Tripulados y Modelos Radiocontrolados}
+
+Un Sistema de Aeronaves No Tripulados son aeronaves no tripuladas junto con las instalaciones de control terrestre, networking y el personal certificado para el piloteo de estas aeronaves \cite{AusGov2013Online}
+
 \section{Análisis}
 \section{Recursos}
 \section{Apéndice}
@@ -89,4 +96,7 @@ El objetivo de este proyecto es crear una aplicación en la cual un usuario de u
 
 %More text before content table.
 
+%%%BIBLIOGRAPHY
+\bibliographystyle{abbrv}
+\bibliography{bib_refs_data}  % sigproc.bib is the name of the Bibliography in this case
 \end{document}
